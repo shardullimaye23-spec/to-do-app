@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="A sleek, modern to-do app to organize your tasks with categories, priorities, and smooth animations." />
+  <title>Taskflow — Modern To-Do App</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <div class="app-container">
+    <!-- Decorative background blobs -->
+    <div class="blob blob-1"></div>
+    <div class="blob blob-2"></div>
+    <div class="blob blob-3"></div>
+
+    <header class="app-header">
+      <div class="logo">
+        <span class="logo-icon">✦</span>
+        <h1>Taskflow</h1>
+      </div>
+      <p class="tagline">Organize your day, beautifully.</p>
+    </header>
+
+    <main class="app-main">
+      <!-- Add Task Form -->
+      <form id="add-task-form" class="add-task-form" autocomplete="off">
+        <div class="input-row">
+          <input
+            type="text"
+            id="task-input"
+            class="task-input"
+            placeholder="What needs to be done?"
+            required
+          />
+          <button type="submit" id="add-task-btn" class="btn btn-add" aria-label="Add task">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round">
+              <line x1="12" y1="5" x2="12" y2="19"></line>
+              <line x1="5" y1="12" x2="19" y2="12"></line>
+            </svg>
+          </button>
+        </div>
+        <div class="options-row">
+          <select id="task-category" class="select-field" aria-label="Category">
+            <option value="personal">🏠 Personal</option>
+            <option value="work">💼 Work</option>
+            <option value="health">💪 Health</option>
+            <option value="learning">📚 Learning</option>
+          </select>
+          <select id="task-priority" class="select-field" aria-label="Priority">
+            <option value="low">🟢 Low</option>
+            <option value="medium" selected>🟡 Medium</option>
+            <option value="high">🔴 High</option>
+          </select>
+        </div>
+      </form>
+
+      <!-- Filter Bar -->
+      <div class="filter-bar">
+        <button class="filter-btn active" data-filter="all" id="filter-all">All</button>
+        <button class="filter-btn" data-filter="active" id="filter-active">Active</button>
+        <button class="filter-btn" data-filter="completed" id="filter-completed">Done</button>
+        <div class="filter-indicator"></div>
+      </div>
+
+      <!-- Stats Bar -->
+      <div class="stats-bar">
+        <span id="task-count" class="stat">0 tasks</span>
+        <button id="clear-completed-btn" class="btn btn-clear" style="display:none;">Clear completed</button>
+      </div>
+
+      <!-- Task List -->
+      <ul id="task-list" class="task-list"></ul>
+
+      <!-- Empty State -->
+      <div id="empty-state" class="empty-state">
+        <div class="empty-icon">📋</div>
+        <p>No tasks yet. Add one above!</p>
+      </div>
+    </main>
+
+    <footer class="app-footer">
+      <p>Built with ♥ — Data stored in your browser</p>
+    </footer>
+  </div>
+
+  <script src="app.js"></script>
+</body>
+</html>
